@@ -1,7 +1,7 @@
 import settings
 import pyspark.sql.types as t
 import pyspark.sql.functions as f
-#from main import spark_session
+import columns as c
 from read_write import write
 def task2(spark_session):
   name_sсhema = t.StructType([t.StructField('nconst', t.StringType(), False),
@@ -17,6 +17,5 @@ def task2(spark_session):
                                         nullValue=r'\N',
                                         schema=name_sсhema,
                                         sep=r'\t')
-  #df.filter().withColumn
-  bydf=birthYear_df.select(f.col('primaryName')).where((f.col('birthYear') >= 1800) & (f.col('birthYear') < 1901))
+  bydf=birthYear_df.select(f.col(c.primaryName)).where((f.col(c.birthYear) >= 1800) & (f.col(c.birthYear) < 1901))
   write(bydf, settings.directory_to_write2)

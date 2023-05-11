@@ -7,6 +7,7 @@ import pyspark.sql.functions as f
 #import task1
 from task1 import task1
 from task2 import task2
+from task3 import task3
 
 
 def main():
@@ -16,9 +17,9 @@ def main():
                    .config(conf=SparkConf())
                    .getOrCreate())
 
-  # movies_df = spark_session.read.csv(path)
-  task1(spark_session)
-  task2(spark_session)
+  #task1(spark_session)
+  #task2(spark_session)
+  task3(spark_session)
 
 
 if __name__ == "__main__":

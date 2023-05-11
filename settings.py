@@ -1,5 +1,9 @@
-path1 = "C:/Rabota/Prof2IT/project/imdb-data/title.akas.tsv.gz"
-directory_to_write1 = "C:/Rabota/Prof2IT/project/result/res1"
+path_title_akas = "imdb-data/title.akas.tsv.gz"
+directory_to_write1 = "result/res1"
 
-path_name_basics = "C:/Rabota/Prof2IT/project/imdb-data/name.basics.tsv.gz"
-directory_to_write2 = "C:/Rabota/Prof2IT/project/result/res2"
+path_name_basics = "imdb-data/name.basics.tsv.gz"
+directory_to_write2 = "result/res2"
+
+
+path_title_basics = "imdb-data/title.basics.tsv.gz"
+directory_to_write3 = "result/res3"
