@@ -1,8 +1,10 @@
 import settings
 import pyspark.sql.types as t
-import pyspark.sql.functions as f
+from pyspark.sql import DataFrame, functions as f
 import columns as c
 from read_write import write
+
+#name_df: DataFrame
 def task2(spark_session):
   name_sсhema = t.StructType([t.StructField('nconst', t.StringType(), False),
                                t.StructField('primaryName', t.StringType(), False),
@@ -12,10 +14,11 @@ def task2(spark_session):
                                t.StructField('knownForTitles', t.StringType(), True),
                                ])
 
-  birthYear_df = spark_session.read.csv(settings.path_name_basics,
+  name_df = spark_session.read.csv(settings.path_name_basics,
                                         header='True',
                                         nullValue=r'\N',
                                         schema=name_sсhema,
                                         sep=r'\t')
-  bydf=birthYear_df.select(f.col(c.primaryName)).where((f.col(c.birthYear) >= 1800) & (f.col(c.birthYear) < 1901))
+  bydf=name_df.select(f.col(c.primaryName)).where((f.col(c.birthYear) >= 1800) & (f.col(c.birthYear) < 1901))
   write(bydf, settings.directory_to_write2)
+  return name_df

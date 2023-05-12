@@ -1,4 +1,4 @@
-import settings
+import settings as s
 import pyspark.sql.types as t
 import pyspark.sql.functions as f
 import columns as c
@@ -16,10 +16,10 @@ def task1(spark_session):
                                t.StructField('isOriginalTitle', t.IntegerType(), True)
                                ])
 
-  title_ua_df = spark_session.read.csv(settings.path_title_akas,
+  title_ua_df = spark_session.read.csv(s.path_title_akas,
                                        header='True',
                                        nullValue=r'\N',
                                        schema=title_sсhema,
                                        sep=r'\t')
   df=title_ua_df.select(f.col(c.title)).where(f.col(c.region) == 'UA')
-  write(df, settings.directory_to_write1)
+  write(df, s.directory_to_write1)

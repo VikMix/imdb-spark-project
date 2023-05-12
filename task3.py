@@ -1,9 +1,10 @@
 import settings
 import pyspark.sql.types as t
-import pyspark.sql.functions as f
+from pyspark.sql import DataFrame, functions as f
 import columns as c
 from read_write import write
 
+#tb_df:DataFrame
 def task3(spark_session):
   tb_schema = t.StructType([t.StructField("tconst", t.StringType(), True),
                             t.StructField("titleType", t.StringType(), True),
@@ -24,3 +25,4 @@ def task3(spark_session):
   df = (tb_df.select(c.tb_primaryTitle, c.tb_originalTitle, c.tb_runtimeMinutes)
         .filter((f.col(c.tb_runtimeMinutes) > 120) & (f.col(c.tb_titleType) == "movie")))
   write(df, settings.directory_to_write3)
+  return tb_df

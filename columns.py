@@ -17,7 +17,7 @@ primaryProfession = "primaryProfession"
 knownForTitles = "knownForTitles"
 
 # title.basics.tsv.gz
-tb_tconst = "tconst"
+tconst = "tconst"
 tb_titleType = "titleType"
 tb_primaryTitle = "primaryTitle"
 tb_originalTitle = "originalTitle"
@@ -27,3 +27,10 @@ tb_endYear = "endYear"
 tb_runtimeMinutes = "runtimeMinutes"
 tb_genres = "genres"
 
+# title.principals.tsv.gz
+#tp_tconst = "tconst"
+tp_ordering = "ordering"
+#tp_nconst = "nconst"
+tp_category = "category"
+tp_job = "job"
+tp_characters = "characters"
