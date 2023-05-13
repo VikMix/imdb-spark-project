@@ -34,3 +34,14 @@ tp_ordering = "ordering"
 tp_category = "category"
 tp_job = "job"
 tp_characters = "characters"
+
+
+# title.ratings.tsv.gz
+#tr_tconst = "tconst"
+tr_averageRating = "averageRating"
+tr_numVotes = "numVotes"
+
+# add window
+adult_per_region = "adult_per_region"
+adult_per_title_type = "adult_per_title_type"
+top_adult="top_adult"
