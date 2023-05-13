@@ -45,3 +45,9 @@ tr_numVotes = "numVotes"
 adult_per_region = "adult_per_region"
 adult_per_title_type = "adult_per_title_type"
 top_adult="top_adult"
+
+# title.episode.tsv.gz
+#te_tconst = "tconst"
+te_parentTconst = "parentTconst"
+te_seasonNumber = "seasonNumber"
+te_episodeNumber = "episodeNumber"

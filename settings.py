@@ -14,10 +14,10 @@ directory_to_write4 = "result/res4"
 path_title_rating = "imdb-data/title.ratings.tsv.gz"
 directory_to_write5 = "result/res5"
 
-"""
-path_title_akas = "imdb-data/title.akas.tsv.gz"
-directory_to_write5 = "result/res6"
+path_title_episode = "imdb-data/title.episode.tsv.gz"
+directory_to_write6 = "result/res6"
 
+"""
 path_title_akas = "imdb-data/title.akas.tsv.gz"
 directory_to_write5 = "result/res7"
 
