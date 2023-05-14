@@ -6,7 +6,7 @@ from read_write import write
 
 
 def task1(spark_session):
-  title_sсhema = t.StructType([t.StructField('titleId', t.StringType(), False),
+  title_schema = t.StructType([t.StructField('titleId', t.StringType(), False),
                                t.StructField('ordering', t.IntegerType(), False),
                                t.StructField('title', t.StringType(), False),
                                t.StructField('region', t.StringType(), True),
@@ -19,7 +19,7 @@ def task1(spark_session):
   title_ua_df = spark_session.read.csv(s.path_title_akas,
                                        header='True',
                                        nullValue=r'\N',
-                                       schema=title_sсhema,
+                                       schema=title_schema,
                                        sep=r'\t')
-  df=title_ua_df.select(f.col(c.title)).where(f.col(c.region) == 'UA')
+  df = title_ua_df.select(f.col(c.title)).where(f.col(c.region) == 'UA')
   write(df, s.directory_to_write1)

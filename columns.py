@@ -28,26 +28,27 @@ tb_runtimeMinutes = "runtimeMinutes"
 tb_genres = "genres"
 
 # title.principals.tsv.gz
-#tp_tconst = "tconst"
+# tp_tconst = "tconst"
 tp_ordering = "ordering"
-#tp_nconst = "nconst"
+# tp_nconst = "nconst"
 tp_category = "category"
 tp_job = "job"
 tp_characters = "characters"
 
-
 # title.ratings.tsv.gz
-#tr_tconst = "tconst"
+# tr_tconst = "tconst"
 tr_averageRating = "averageRating"
 tr_numVotes = "numVotes"
 
-# add window
+# add windows
 adult_per_region = "adult_per_region"
 adult_per_title_type = "adult_per_title_type"
-top_adult="top_adult"
+top_adult = "top_adult"
+decade = "decade"
+ten_most_popular = "ten_most_popular"
 
 # title.episode.tsv.gz
-#te_tconst = "tconst"
+# te_tconst = "tconst"
 te_parentTconst = "parentTconst"
 te_seasonNumber = "seasonNumber"
 te_episodeNumber = "episodeNumber"
