@@ -5,6 +5,7 @@ import columns as c
 from read_write import write
 
 
+
 # tb_df:DataFrame
 def task3(spark_session):
   tb_schema = t.StructType([t.StructField("tconst", t.StringType(), True),

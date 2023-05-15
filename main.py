@@ -8,6 +8,7 @@ from task4 import task4
 from task5 import task5
 from task6 import task6
 from task7 import task7
+from task8 import task8
 
 
 def main():
@@ -17,13 +18,14 @@ def main():
                    .config(conf=SparkConf())
                    .getOrCreate())
 
-  # task1(spark_session)
-  # name_df = task2(spark_session)
+  task1(spark_session)
+  name_df = task2(spark_session)
   tb_df = task3(spark_session)
-  # task4(spark_session, tb_df, name_df)
-  # task5(spark_session, tb_df)
-  # task6(spark_session, tb_df)
+  task4(spark_session, tb_df, name_df)
+  task5(spark_session, tb_df)
+  task6(spark_session, tb_df)
   task7(spark_session, tb_df)
+  task8(spark_session, tb_df)
 
 
 if __name__ == "__main__":

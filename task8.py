@@ -6,7 +6,7 @@ from read_write import write
 from pyspark.sql import Window as w
 
 
-def task7(spark_session, tb_df):
+def task8(spark_session, tb_df):
   title_ratings_schema = t.StructType([t.StructField("tconst", t.StringType(), True),
                                        t.StructField("averageRating", t.DoubleType(), True),
                                        t.StructField("numVotes", t.IntegerType(), True),
@@ -17,15 +17,14 @@ def task7(spark_session, tb_df):
                                             schema=title_ratings_schema,
                                             sep=r'\t')
 
-  # Get 10 titles of the most popular movies/series etc. by each decade
-  tb_df = tb_df.filter(f.col(c.tb_startYear).isNotNull())
+  # Get 10 titles of the most popular movies/series etc. by each genre
+
+  tb_df = tb_df.filter(f.col(c.tb_genres).isNotNull())
+  tb_df = tb_df.withColumn(c.tb_genres, f.explode(f.split(f.col(c.tb_genres), ",", limit=-1)))
   title_ratings_df = title_ratings_df.select(c.tconst, c.tr_averageRating)
   most_popular_df = tb_df.join(title_ratings_df, c.tconst)
-  most_popular_df = (most_popular_df.withColumn(c.decade, 10*f.floor(f.col(c.tb_startYear) / 10).cast(t.IntegerType()))
-                     .orderBy(c.decade))
-  window = w.partitionBy(c.decade).orderBy(f.desc(f.col(c.tr_averageRating)))
+  window = w.partitionBy(c.tb_genres).orderBy(f.desc(c.tr_averageRating))
   most_popular_df = (most_popular_df.withColumn(c.ten_most_popular, f.row_number().over(window))
                      .where(f.col(c.ten_most_popular) <= 10)
-                     .select(c.tb_primaryTitle, c.tb_startYear, c.tb_endYear,
-                             c.tr_averageRating, c.decade, c.ten_most_popular))
-  write(most_popular_df, s.directory_to_write7)
+                     .select(c.tb_primaryTitle, c.tb_genres, c.tr_averageRating, c.ten_most_popular))
+  write(most_popular_df, s.directory_to_write8)

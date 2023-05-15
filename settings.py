@@ -17,6 +17,7 @@ directory_to_write5 = "result/res5"
 path_title_episode = "imdb-data/title.episode.tsv.gz"
 directory_to_write6 = "result/res6"
 directory_to_write7 = "result/res7"
+directory_to_write8 = "result/res8"
 """
 path_title_akas = "imdb-data/title.akas.tsv.gz"
 
