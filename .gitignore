@@ -11,6 +11,8 @@
 
 .idea/*
 .idea
+imdb-data/
+result/
 
 # User-specific stuff
 .idea/workspace.xml
